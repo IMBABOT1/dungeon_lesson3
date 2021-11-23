@@ -10,6 +10,7 @@ public class Monster extends Unit {
         return hp > 0;
     }
 
+
     public Monster(TextureAtlas atlas, GameController gc) {
         super(gc, 5, 2, 10);
         this.texture = atlas.findRegion("monster");
@@ -23,6 +24,9 @@ public class Monster extends Unit {
         this.hpMax = 10;
         this.hp = hpMax;
     }
+
+
+
 
 
     public void update(float dt) {

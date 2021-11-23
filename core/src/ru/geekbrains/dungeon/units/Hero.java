@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import ru.geekbrains.dungeon.GameController;
 import ru.geekbrains.dungeon.GameMap;
 
@@ -13,6 +14,7 @@ public class Hero extends Unit {
     int targetX, targetY;
     int exp;
     int counter, maxCounter;
+
 
     public Hero(TextureAtlas atlas, GameController gc) {
         super(gc, 1, 1, 10);
@@ -29,7 +31,6 @@ public class Hero extends Unit {
 
     public void update(float dt) {
         checkMovement(dt);
-        System.out.println(counter);
     }
 
     public boolean isStayStill() {
@@ -58,8 +59,8 @@ public class Hero extends Unit {
             targetY = cellY;
             m.takeDamage(1);
 
-            if (m.hp == 0){
-                exp++;
+            if (m.takingDamage() && MathUtils.random(1, 4) == 1){
+                hp--;
             }
         }
 

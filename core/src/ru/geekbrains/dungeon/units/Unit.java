@@ -40,6 +40,13 @@ public abstract class Unit {
         return hp <= 0;
     }
 
+    public boolean takingDamage(){
+        if (hp == hp){
+            return true;
+        }
+        return false;
+    }
+
     public abstract void update(float dt);
 
     public void render(SpriteBatch batch) {
